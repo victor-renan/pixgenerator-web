@@ -1,0 +1,17 @@
+{
+    "name": "victor-renan/pixgenerator-web",
+    "autoload": {
+        "psr-4": {
+            "VictorRenan\\PixGeneratorWeb\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Renan",
+            "email": "alvesrenanpro@gmail.com"
+        }
+    ],
+    "require": {
+        "victor-renan/pixgenerator": "^1.0"
+    }
+}
