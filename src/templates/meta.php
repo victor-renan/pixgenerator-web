@@ -15,5 +15,6 @@
 <meta name="google" value="notranslate">
 <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes, minimal-ui">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
-<link rel="stylesheet" href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
+<link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+<link rel="stylesheet" href="src/static/css/bulma.config.css">
 <script src="https://cdn.jsdelivr.net/npm/maska@3/dist/cdn/maska.js"></script>

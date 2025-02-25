@@ -17,7 +17,7 @@
                             <label class="label">Chave Pix <strong class="has-text-danger">*</strong></label>
                             <div class="field has-addons">
                                 <div class="control has-icons-left is-expanded">
-                                    <input id="input_pix-type" class="input" type="text" placeholder="">
+                                    <input id="input_pix-type" class="input" type="text" required>
                                     <span class="icon is-small is-left">
                                         <i class="bx bx-key"></i>
                                     </span>
@@ -102,44 +102,74 @@
 </main>
 
 <script defer>
+    const { Mask, MaskInput } = Maska;
 
-const  { Mask, MaskInput } = Maska;
+    const pixTypeSelect = document.querySelector('#select_pix-type')
+    const pixTypeInput = document.querySelector('#input_pix-type')
 
-const pixTypeSelect = document.querySelector('#select_pix-type')
-const pixTypeInput = document.querySelector('#input_pix-type')
+    const pixTypes = {
+        'cpf': {
+            display: 'CPF',
+            mask: () => {
+                pixTypeInput.placeholder = '000.000.000-00'
+                return '###.###.###-##'
+            }
+        },
+        'cnpj': {
+            display: 'CNPJ',
+            mask: () => {
+                pixTypeInput.placeholder = '00.000.000/0000-00'
+                return '##.###.###/####-##'
+            }
+        },
+        'phone': {
+            display: 'Telefone',
+            mask: () => {
+                pixTypeInput.placeholder = '(00) 00000-0000'
+                return '(##) #####-####'
+            }
+        },
+        'email': {
+            display: 'Email',
+            mask: () => {
+                pixTypeInput.type = 'email';
+                pixTypeInput.placeholder = 'exemplo@mail.com'
+            }
+        },
+        'random': {
+            display: 'Aleatória',
+            mask: () => {
+                pixTypeInput.placeholder = 'Chave aleatória'
+            }
+        },
+    }
 
-const pixTypes = [
-    { 
-        value: 'cpfpj',
-        display: 'CPF/CNPJ',
+    new MaskInput(pixTypeInput, {
         mask: () => {
-            new MaskInput(pixTypeInput, {mask: ['###.###.###-##', '##.###.###/####-##']})
+            return pixTypes[pixTypeSelect.value].mask()
         }
-    },
-    { 
-        value: 'email',
-        display: 'Email',
-        mask: () => {}
-    },
-    { 
-        value: 'phone',
-        display: 'Telefone',
-        mask: () => {}
-    },
-    { 
-        value: 'random',
-        display: 'Aleatória',
-        mask: () => {}
-    },
-];
+    })
 
-pixTypes.forEach((item) => {
-    const option = document.createElement('option')
-    option.value = item.value
-    option.textContent = item.display
-    pixTypeSelect.appendChild(option)
-})
+    const createOption = (value, display, target) => {
+        const option = document.createElement('option')
+        option.value = value
+        option.textContent = display
+        target.appendChild(option)
 
+        return option
+    }
+
+    Object.keys(pixTypes).forEach((item, i) => {
+        createOption(item, pixTypes[item].display, pixTypeSelect)
+        if (i == 0) {
+            pixTypes[item].mask()
+        }
+    })
+
+    pixTypeSelect.addEventListener('change', (event) => {
+        pixTypeInput.value = ''
+        pixTypes[event.target.value].mask()
+    })
 </script>
 
 <style>
