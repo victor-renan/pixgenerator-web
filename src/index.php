@@ -6,7 +6,8 @@
 <main id="app" class="is-flex is-justify-content-center is-align-items-center">
     <div class="container is-max-tablet">
         <div class="content has-text-centered">
-            <h1>Gerador de QR Pix</h1>
+            <i class="box is-bordered bx bx-qr is-size-1 p-1 mb-0"></i>
+            <h1 class="mt-3">Gerador de QR Pix</h1>
             <p>Preencha os dados abaixo para gerar seu QRCode</p>
         </div>
         <div>
@@ -35,9 +36,9 @@
                 <div class="columns">
                     <div class="column is-half">
                         <div class="field">
-                            <label class="label">Quantidade (R$)</label>
+                            <label class="label">Quantidade</label>
                             <div class="control has-icons-left">
-                                <input class="input" type="text" placeholder="0,00">
+                                <input id="input_pix-amount" class="input" type="text" placeholder="R$ 0,00">
                                 <span class="icon is-small is-left">
                                     <i class="bx bx-dollar"></i>
                                 </span>
@@ -106,6 +107,7 @@
 
     const pixTypeSelect = document.querySelector('#select_pix-type')
     const pixTypeInput = document.querySelector('#input_pix-type')
+    const pixAmountInput = document.querySelector('#input_pix-amount')
 
     const pixTypes = {
         'cpf': {
@@ -148,6 +150,14 @@
         mask: () => {
             return pixTypes[pixTypeSelect.value].mask()
         }
+    })
+
+    new MaskInput(pixAmountInput, {
+        number: {
+            locale: 'de',
+            fraction: 2,
+        },
+        postProcess: (val) => val ? `R$ ${val}` : ''
     })
 
     const createOption = (value, display, target) => {
