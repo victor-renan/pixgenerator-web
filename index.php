@@ -20,12 +20,12 @@
     <link rel="author" href="Ralves" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
-    <link rel="stylesheet" href="../src/static/css/bulma.config.css">
+    <link rel="stylesheet" href="./src/static/css/bulma.config.css">
     <script src="https://cdn.jsdelivr.net/npm/maska@3/dist/cdn/maska.js"></script>
-    <script src="../src/static/js/bulma.config.js"></script>
+    <script src="./src/static/js/bulma.config.js"></script>
     <title>Pix Generator</title>
 </head>
 
-<?php require_once __DIR__ . '/../src/index.php' ?>
+<?php require_once __DIR__ . '/src/index.php' ?>
 
 </html>

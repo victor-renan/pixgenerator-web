@@ -6,7 +6,7 @@
             <p>Preencha os dados abaixo para gerar seu QRCode</p>
         </div>
         <div>
-            <form id="form_pix">
+            <form id="form_pix" class="p-4">
                 <div class="columns">
                     <div class="column is-full">
                         <div class="field">
@@ -217,7 +217,7 @@
     }
 
     const getQRCode = async (params) => {
-        const res = await fetch(`../src/qrcode.php?${params}`)
+        const res = await fetch(`./src/qrcode.php?${params}`)
         return await res.json()
     }
 
@@ -227,7 +227,7 @@
         qrCopy.addEventListener('click', () => {
             navigator.clipboard.writeText(data.code);
             qrCopy.querySelector('i').className = 'bx bx-check-double mr-1'
-            qrCopy.querySelector('span').textContent = 'Texto copiado!'
+            qrCopy.querySelector('span').textContent = 'Código copiado!'
             setTimeout(() => {
                 qrCopy.querySelector('i').className = 'bx bx-copy mr-1'
                 qrCopy.querySelector('span').textContent = 'Copiar Código Pix!'
