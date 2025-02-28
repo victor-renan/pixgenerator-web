@@ -147,35 +147,37 @@
     const pixTypes = {
         'cpf': {
             display: 'CPF',
-            mask: () => {
+            mask: () => '###.###.###-##',
+            change: () => {
                 pixTypeInput.placeholder = '000.000.000-00'
-                return '###.###.###-##'
             }
         },
         'cnpj': {
             display: 'CNPJ',
-            mask: () => {
+            mask: () => '##.###.###/####-##',
+            change: () => {
                 pixTypeInput.placeholder = '00.000.000/0000-00'
-                return '##.###.###/####-##'
             }
         },
         'phone': {
             display: 'Telefone',
-            mask: () => {
+            mask: () =>'(##) #####-####',
+            change: () => {
                 pixTypeInput.placeholder = '(00) 00000-0000'
-                return '(##) #####-####'
             }
         },
         'email': {
             display: 'Email',
-            mask: () => {
+            mask: () => {},
+            change: () => {
                 pixTypeInput.type = 'email';
                 pixTypeInput.placeholder = 'exemplo@mail.com'
             }
         },
         'random': {
             display: 'Aleatória',
-            mask: () => {
+            mask: () => {},
+            change: () => {
                 pixTypeInput.placeholder = 'Chave aleatória'
             }
         },
@@ -192,13 +194,14 @@
     Object.keys(pixTypes).forEach((item, i) => {
         createOption(item, pixTypes[item].display, pixTypeSelect)
         if (i == 0) {
-            pixTypes[item].mask()
+            pixTypes[item].change()
         }
     })
 
     pixTypeSelect.addEventListener('change', (event) => {
         pixTypeInput.value = ''
         pixTypeInput.type = 'text'
+        pixTypes[event.target.value].change()
     })
 
     new MaskInput(pixTypeInput, {
