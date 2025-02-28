@@ -1,9 +1,18 @@
-<main id="app" class="is-flex is-justify-content-center is-align-items-center">
+<main id="app" class="is-flex is-justify-content-center is-align-items-center p-3">
     <div class="container is-max-tablet">
-        <div class="content has-text-centered">
+        <div class="content has-text-centered mb-0">
             <i class="box is-bordered bx bx-qr is-size-1 p-1 mb-0"></i>
-            <h1 class="mt-3">Gerador de QR Pix</h1>
+            <h1 class="mt-3 mb-0">Gerador de QR Pix</h1>
             <p>Preencha os dados abaixo para gerar seu QRCode</p>
+            <div class="is-flex is-justify-content-center is-align-items-center">
+                <button id="theme-toggler" class="button mr-4">
+                    <i class="bx bx-sun"></i>
+                </button>
+                <a class="m-0" target="_blank" href="https://github.com/victor-renan/pixgenerator">
+                    <i class="bx bxl-github"></i>
+                    Github
+                </a>
+            </div>
         </div>
         <div>
             <form id="form_pix" class="p-4">
@@ -25,7 +34,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
                 <div class="columns">
@@ -99,7 +107,6 @@
                     </button>
                 </div>
             </form>
-
         </div>
     </div>
     <div class="modal" id="modal_qr">
@@ -136,6 +143,7 @@
     const qrModal = document.querySelector('#modal_qr')
     const qrImage = document.querySelector('#qr-image')
     const qrCopy = document.querySelector('#qr-copy-code')
+    const themeToggler = document.querySelector('#theme-toggler')
     const pixTypes = {
         'cpf': {
             display: 'CPF',
@@ -246,11 +254,35 @@
         submitBtn.classList.remove('is-loading')
     })
 
+    themeToggler.addEventListener('click', () => {
+        if (document.documentElement.dataset.theme == 'light') {
+            document.documentElement.dataset.theme = 'dark'
+            themeToggler.querySelector('i').className = 'bx bx-sun'
+        } else {
+            document.documentElement.dataset.theme = 'light'
+            themeToggler.querySelector('i').className = 'bx bx-moon'
+        }
+    })
+
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        themeToggler.querySelector('i').className = 'bx bx-sun'
+    } else {
+        themeToggler.querySelector('i').className = 'bx bx-moon'
+    }
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
+        if (event.matches) {
+            themeToggler.querySelector('i').className = 'bx bx-sun'
+        } else {
+            themeToggler.querySelector('i').className = 'bx bx-moon'
+        }
+    })
+
 </script>
 
 <style>
     #app {
-        height: 100vh;
+        min-height: 100vh;
     }
 
     #qr-image {
