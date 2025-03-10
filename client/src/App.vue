@@ -84,7 +84,7 @@ async function submit() {
   }
 
   if (form.value.amount) {
-    form.value.amount = form.value.amount
+    form.value.amount = String(form.value.amount)
       .replace('R$ ', '')
       .replace('.', '')
       .replace(',', '.')
