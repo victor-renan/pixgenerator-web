@@ -7,14 +7,6 @@ use VictorRenan\PixGenerator\PixGenerator;
 
 header('Content-Type: application/json');
 
-if (explode('?', $_SERVER['REQUEST_URI'])[0] != '/') {
-    header('HTTP/1.1 404 Not Found');
-    echo json_encode([
-        'error' => 'Rota inexistente'
-    ]);
-    return;
-}
-
 if (!$_GET['pix']) {
     header('HTTP/1.1 400 Bad Request');
     echo json_encode([
