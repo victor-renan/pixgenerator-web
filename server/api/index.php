@@ -7,7 +7,7 @@ use VictorRenan\PixGenerator\PixGenerator;
 
 header('Content-Type: application/json');
 
-if (!$_GET['pix']) {
+if (empty($_GET['pix'])) {
     header('HTTP/1.1 400 Bad Request');
     echo json_encode([
         'error' => 'Digite a chave PIX'
