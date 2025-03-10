@@ -6,6 +6,7 @@ use chillerlan\QRCode\QRCode;
 use VictorRenan\PixGenerator\PixGenerator;
 
 header('Content-Type: application/json');
+header('Access-Control-Allow-Origin: *');
 
 if (empty($_GET['pix'])) {
     header('HTTP/1.1 400 Bad Request');
