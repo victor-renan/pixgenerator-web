@@ -84,10 +84,12 @@ async function submit() {
   }
 
   if (form.value.amount) {
-    form.value.amount = String(form.value.amount)
-      .replace('R$ ', '')
-      .replace('.', '')
-      .replace(',', '.')
+    form.value.amount = parseFloat(
+      String(form.value.amount)
+        .replace('R$ ', '')
+        .replace('.', '')
+        .replace(',', '.')
+    )
   }
 
   const res = await fetch(API + '?' + new URLSearchParams(form.value))
