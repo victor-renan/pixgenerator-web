@@ -23,8 +23,8 @@ try {
         $generator->setTransactionAmount($_GET['amount']);
     }
 
-    if (isset($_GET['transaction-id'])) {
-        $generator->setTransactionId($_GET['transaction-id']);
+    if (isset($_GET['txid'])) {
+        $generator->setTransactionId($_GET['txid']);
     }
 
     if (isset($_GET['name'])) {
@@ -35,8 +35,8 @@ try {
         $generator->setMerchantCity($_GET['city']);
     }
 
-    if (isset($_GET['additional-info'])) {
-        $generator->setAdditionalInfo($_GET['additional-info']);
+    if (isset($_GET['info'])) {
+        $generator->setAdditionalInfo($_GET['info']);
     }
 
     $code = $generator->getCode();
