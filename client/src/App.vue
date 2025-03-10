@@ -15,7 +15,7 @@ interface PixForm {
 }
 
 interface PixType {
-  id: string,
+  id: string
   display: string
   mask?: string
   type: string
