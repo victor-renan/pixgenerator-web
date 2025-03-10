@@ -2,7 +2,7 @@
     "name": "victor-renan/pixgenerator-web",
     "autoload": {
         "psr-4": {
-            "VictorRenan\\PixGeneratorWeb\\": "src/"
+            "VictorRenan\\PixgeneratorWeb\\": "src/"
         }
     },
     "authors": [
