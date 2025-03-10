@@ -79,7 +79,7 @@ async function submit() {
 
   form.value.pix = mask.unmasked(form.value.pix)
 
-  if (selectedType.id === 'phone') {
+  if (selectedType.value.id === 'phone') {
     form.value.pix = '+55' + form.value.pix
   }
 
