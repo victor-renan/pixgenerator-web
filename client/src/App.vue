@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
-import { Mask, MaskInputOptions, MaskOptions } from 'maska'
-import { onMounted, ref } from 'vue'
+import { Mask } from 'maska'
+import { ref } from 'vue'
 
 const API = 'https://pixgenerator-api.vercel.app/'
 
