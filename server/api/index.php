@@ -18,23 +18,23 @@ if (empty($_GET['pix'])) {
 try {
     $generator = new PixGenerator($_GET['pix']);
 
-    if ($_GET['amount']) {
+    if (isset($_GET['amount'])) {
         $generator->setTransactionAmount($_GET['amount']);
     }
 
-    if ($_GET['transaction-id']) {
+    if (isset($_GET['transaction-id'])) {
         $generator->setTransactionId($_GET['transaction-id']);
     }
 
-    if ($_GET['name']) {
+    if (isset($_GET['name'])) {
         $generator->setMerchantName($_GET['name']);
     }
 
-    if ($_GET['city']) {
+    if (isset($_GET['city'])) {
         $generator->setMerchantCity($_GET['city']);
     }
 
-    if ($_GET['additional-info']) {
+    if (isset($_GET['additional-info'])) {
         $generator->setAdditionalInfo($_GET['additional-info']);
     }
 
