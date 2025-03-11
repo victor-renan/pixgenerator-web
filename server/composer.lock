@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f62dc9d58d7e1f92ecfbbda24a419e0e",
+    "content-hash": "c5ea134f4342f4562d6d23734c7ef678",
     "packages": [
         {
             "name": "chillerlan/php-qrcode",
@@ -167,20 +167,20 @@
         },
         {
             "name": "victor-renan/pixgenerator",
-            "version": "v1.0.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/victor-renan/pixgenerator.git",
-                "reference": "a1e68a80a64251e50138677ca7de5d693f25fc3d"
+                "reference": "d9a8c6ae542605a24c2aa74afcb45586863e1896"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/victor-renan/pixgenerator/zipball/a1e68a80a64251e50138677ca7de5d693f25fc3d",
-                "reference": "a1e68a80a64251e50138677ca7de5d693f25fc3d",
+                "url": "https://api.github.com/repos/victor-renan/pixgenerator/zipball/d9a8c6ae542605a24c2aa74afcb45586863e1896",
+                "reference": "d9a8c6ae542605a24c2aa74afcb45586863e1896",
                 "shasum": ""
             },
             "require-dev": {
-                "phpunit/phpunit": "^12.0"
+                "phpunit/phpunit": "^11.5"
             },
             "type": "library",
             "autoload": {
@@ -189,6 +189,9 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
             "authors": [
                 {
                     "name": "Renan",
@@ -198,9 +201,9 @@
             "description": "A static PIX (copy and paste) generator",
             "support": {
                 "issues": "https://github.com/victor-renan/pixgenerator/issues",
-                "source": "https://github.com/victor-renan/pixgenerator/tree/v1.0.0"
+                "source": "https://github.com/victor-renan/pixgenerator/tree/v1.0.1"
             },
-            "time": "2025-02-24T12:38:51+00:00"
+            "time": "2025-03-11T13:20:30+00:00"
         }
     ],
     "packages-dev": [],
