@@ -75,22 +75,26 @@ const loading = ref(false)
 async function submit() {
   loading.value = true
 
-  const mask = new Mask({ mask: selectedType.value.mask })
+  const data = { ...form.value }
 
-  form.value.pix = mask.unmasked(form.value.pix)
+  const mask = new Mask({
+    mask: selectedType.value.mask
+  })
+
+  data.pix = mask.unmasked(data.pix)
 
   if (selectedType.value.id === 'phone') {
-    form.value.pix = '+55' + form.value.pix
+    data.pix = '+55' + data.pix
   }
 
-  if (form.value.amount) {
-    form.value.amount = String(form.value.amount)
+  if (data.amount) {
+    data.amount = String(data.amount)
       .replace('R$ ', '')
       .replace('.', '')
       .replace(',', '.')
   }
 
-  const res = await fetch(API + '?' + new URLSearchParams(form.value))
+  const res = await fetch(API + '?' + new URLSearchParams(data))
   const json = await res.json()
 
   loading.value = false
